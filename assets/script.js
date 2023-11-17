@@ -96,7 +96,6 @@ var characterLength;
 function getPasswordOptions() {
   /* check for password length */
   var characterCheck = false;
-
   do {
   var characterLengthInput = prompt("Choose length of password between 8-128");
   characterLength = parseInt(characterLengthInput);
@@ -114,8 +113,7 @@ function getPasswordOptions() {
 
   /* check for uppercase */
   titleWord = "uppercase"
-  lwc = promptCheck(titleWord);
-  console.log(pwc);
+  uwc = promptCheck(titleWord);
 
   /* check for numeric */
   titleWord = "number"
@@ -137,8 +135,34 @@ function getRandom(arr) {
 // Function to generate password with user input
 function generatePassword() {
   getPasswordOptions();
-  spc 
+  var everyArr = [];
+  var letter;
+  var chosen
+  var random; 
+  var password = "";
+  if (lwc == true){
+    everyArr.push(lowerCasedCharacters);
+  }
+  if (uwc == true){
+    everyArr.push(upperCasedCharacters);
+  }
+  if (nmc == true){
+    everyArr.push(numericCharacters);
+  }
+  if (spc == true){
+    everyArr.push(specialCharacters)
+  }
+
+  for (i = 0; i < characterLength; i++){
+    random = Math.floor(Math.random() * everyArr.length);
+    chosen = getRandom(everyArr[random]);
+    letter = everyArr[random][chosen]; 
+    password += letter;
+  }
+  console.log(password)
+  return password
 }
+generatePassword();
 
 // Get references to the #generate element
 var generateBtn = document.querySelector('#generate');
