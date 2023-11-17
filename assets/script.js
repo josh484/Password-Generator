@@ -87,12 +87,16 @@ var upperCasedCharacters = [
   'Y',
   'Z'
 ];
-
+var lwc = false;
+var pwc = false;
+var nmc = false;
+var spc = false;
+var characterLength;
 // Function to prompt user for password options
 function getPasswordOptions() {
   /* check for password length */
   var characterCheck = false;
-  var characterLength;
+
   do {
   var characterLengthInput = prompt("Choose length of password between 8-128");
   characterLength = parseInt(characterLengthInput);
@@ -106,23 +110,19 @@ function getPasswordOptions() {
 
   /* Check for lowercase */
   var titleWord = "lowercase";
-  var lwc = false;
   lwc = promptCheck(titleWord);
 
   /* check for uppercase */
   titleWord = "uppercase"
-  var pwc = false;
   lwc = promptCheck(titleWord);
   console.log(pwc);
 
   /* check for numeric */
   titleWord = "number"
-  var nmc = false;
   nmc = promptCheck(titleWord);
 
   /* check for special character */
   titleWord = "special character"
-  var spc = false;
   spc = promptCheck(titleWord);
 }
 
@@ -136,7 +136,8 @@ function getRandom(arr) {
 
 // Function to generate password with user input
 function generatePassword() {
-
+  getPasswordOptions();
+  spc 
 }
 
 // Get references to the #generate element
