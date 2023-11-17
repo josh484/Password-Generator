@@ -96,53 +96,21 @@ function getPasswordOptions() {
   do {
   var characterLengthInput = prompt("Choose length of password between 8-128");
   characterLength = parseInt(characterLengthInput);
+  if (isNaN(characterLength)) {
+    characterLength = 0;
+  }
   characterLengthT(characterLength, characterCheck);
   } while (characterCheck == false && characterLength < 8 || characterLength > 128 && characterCheck == false)
   
   
 
   /* Check for lowercase */
-  var lowercaseChoice;
-  var lowercaseCheck = false
+  var lowercaseWord = "lowercase";
   var lwc = false;
-  do{
-  var checkLowerCase = prompt("Should Password have lowercase, type Y or N") ;
-  lowercaseChoice = checkLowerCase.toUpperCase();
-  if (lowercaseChoice == "Y" || lowercaseChoice == "N") {
-    lowercaseCheck = true;
-    if (lowercaseChoice == "Y") {
-      lwc = true;
-    }else {
-      lwc = false;
-    }
-  }
-  else {
-    lowercaseCheck = false;
-  }
-  } while (lowercaseCheck == false)
-
-  /* check for uppercase */
-  var uppercaseChoice;
-  var uppercaseCheck = false
-  var pwc = false;
-  do{
-  var checkUpperCase = prompt("Should Password have lowercase, type Y or N") ;
-  uppercaseChoice = checkUpperCase.toUpperCase();
-  if (uppercaseChoice == "Y" || uppercaseChoice == "N") {
-    uppercaseCheck = true;
-    if (uppercaseChoice == "Y") {
-      pwc = true;
-    }else {
-      pwc = false;
-    }
-  }
-  else {
-    uppercaseCheck = false;
-  }
-  } while (uppercaseCheck == false)
-
-
+  lwc = promptCheck(lowercaseWord);
+  console.log(lwc);
 }
+
 getPasswordOptions();
 // Function for getting a random element from an array
 function getRandom(arr) {
@@ -175,4 +143,24 @@ function characterLengthT(x,y) {
   else {
     return y = true;
   }
+}
+
+function promptCheck(x) {
+  var Choice;
+  var Check = false
+  do{
+  var Case = prompt("Should Password have " + x + ", type Y or N") ;
+  Choice = Case.toUpperCase();
+  if (Choice == "Y" || Choice == "N") {
+    Check = true;
+    if (Choice == "Y") {
+      return true;
+    }else {
+      return false;
+    }
+  }
+  else {
+    Check = false;
+  }
+  } while (Check == false)
 }
