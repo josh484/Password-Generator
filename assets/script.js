@@ -103,7 +103,8 @@ function getPasswordOptions() {
 
   /* Check for lowercase */
   var lowercaseChoice;
-  var lowercaseCheck = false, lwc = false;
+  var lowercaseCheck = false
+  var lwc = false;
   do{
   var checkLowerCase = prompt("Should Password have lowercase, type Y or N") ;
   lowercaseChoice = checkLowerCase.toUpperCase();
@@ -119,6 +120,26 @@ function getPasswordOptions() {
     lowercaseCheck = false;
   }
   } while (lowercaseCheck == false)
+
+  /* check for uppercase */
+  var uppercaseChoice;
+  var uppercaseCheck = false
+  var pwc = false;
+  do{
+  var checkUpperCase = prompt("Should Password have lowercase, type Y or N") ;
+  uppercaseChoice = checkUpperCase.toUpperCase();
+  if (uppercaseChoice == "Y" || uppercaseChoice == "N") {
+    uppercaseCheck = true;
+    if (uppercaseChoice == "Y") {
+      pwc = true;
+    }else {
+      pwc = false;
+    }
+  }
+  else {
+    uppercaseCheck = false;
+  }
+  } while (uppercaseCheck == false)
 
 
 }
