@@ -90,14 +90,37 @@ var upperCasedCharacters = [
 
 // Function to prompt user for password options
 function getPasswordOptions() {
+  /* check for password length */
   var characterCheck = false;
-  var characterLength
+  var characterLength;
   do {
   var characterLengthInput = prompt("Choose length of password between 8-128");
   characterLength = parseInt(characterLengthInput);
   characterLengthT(characterLength, characterCheck);
   } while (characterCheck == false && characterLength < 8 || characterLength > 128 && characterCheck == false)
-  console.log(characterLength + characterCheck);
+  
+  
+
+  /* Check for lowercase */
+  var lowercaseChoice;
+  var lowercaseCheck = false, lwc = false;
+  do{
+  var checkLowerCase = prompt("Should Password have lowercase, type Y or N") ;
+  lowercaseChoice = checkLowerCase.toUpperCase();
+  if (lowercaseChoice == "Y" || lowercaseChoice == "N") {
+    lowercaseCheck = true;
+    if (lowercaseChoice == "Y") {
+      lwc = true;
+    }else {
+      lwc = false;
+    }
+  }
+  else {
+    lowercaseCheck = false;
+  }
+  } while (lowercaseCheck == false)
+
+
 }
 getPasswordOptions();
 // Function for getting a random element from an array
