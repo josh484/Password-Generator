@@ -126,11 +126,13 @@ function getPasswordOptions() {
   spc = promptCheck(titleWord);
 }
 
-getPasswordOptions();
+
 // Function for getting a random element from an array
 function getRandom(arr) {
-
+  var random = Math.floor(Math.random() * arr.length);
+  return random
 }
+
 
 // Function to generate password with user input
 function generatePassword() {
