@@ -105,10 +105,25 @@ function getPasswordOptions() {
   
 
   /* Check for lowercase */
-  var lowercaseWord = "lowercase";
+  var titleWord = "lowercase";
   var lwc = false;
-  lwc = promptCheck(lowercaseWord);
-  console.log(lwc);
+  lwc = promptCheck(titleWord);
+
+  /* check for uppercase */
+  titleWord = "uppercase"
+  var pwc = false;
+  lwc = promptCheck(titleWord);
+  console.log(pwc);
+
+  /* check for numeric */
+  titleWord = "number"
+  var nmc = false;
+  nmc = promptCheck(titleWord);
+
+  /* check for special character */
+  titleWord = "special character"
+  var spc = false;
+  spc = promptCheck(titleWord);
 }
 
 getPasswordOptions();
