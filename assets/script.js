@@ -96,17 +96,21 @@ var characterLength;
 function getPasswordOptions() {
   /* check for password length */
   var characterCheck = false;
-  do {
-  var characterLengthInput = prompt("Choose length of password between 8-128");
-  characterLength = parseInt(characterLengthInput);
-  if (isNaN(characterLength)) {
-    characterLength = 0;
-  }
-  characterLengthT(characterLength, characterCheck);
-  } while (characterCheck == false && characterLength < 8 || characterLength > 128 && characterCheck == false)
-  
+
   
 
+  do {
+    var characterLengthInput = prompt("Choose length of password between 8-128");
+    characterLength = parseInt(characterLengthInput);
+    if (isNaN(characterLength)) {
+      characterLength = 0;
+    }
+    characterLengthT(characterLength, characterCheck);
+    } while (characterCheck == false && characterLength < 8 || characterLength > 128 && characterCheck == false)
+
+
+
+ 
   /* Check for lowercase */
   var titleWord = "lowercase";
   lwc = promptCheck(titleWord);
@@ -122,6 +126,7 @@ function getPasswordOptions() {
   /* check for special character */
   titleWord = "special character"
   spc = promptCheck(titleWord);
+
 }
 
 
@@ -134,7 +139,10 @@ function getRandom(arr) {
 
 // Function to generate password with user input
 function generatePassword() {
+  do{
   getPasswordOptions();
+  }
+  while (lwc == false && pwc == false && nmc == false && spc == false)
   var everyArr = [];
   var letter;
   var chosen
@@ -159,10 +167,9 @@ function generatePassword() {
     letter = everyArr[random][chosen]; 
     password += letter;
   }
-  console.log(password)
   return password
 }
-generatePassword();
+
 
 // Get references to the #generate element
 var generateBtn = document.querySelector('#generate');
@@ -191,7 +198,7 @@ function promptCheck(x) {
   var Choice;
   var Check = false
   do{
-  var Case = prompt("Should Password have " + x + ", type Y or N") ;
+  var Case = prompt("Should Password have " + x + ", type Y or N, You must have at least one of the options chosen") ;
   Choice = Case.toUpperCase();
   if (Choice == "Y" || Choice == "N") {
     Check = true;
