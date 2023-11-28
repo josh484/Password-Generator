@@ -92,6 +92,7 @@ var pwc = false;
 var nmc = false;
 var spc = false;
 var characterLength;
+
 // Function to prompt user for password options
 function getPasswordOptions() {
   /* check for password length */
