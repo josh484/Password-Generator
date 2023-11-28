@@ -1,6 +1,6 @@
 # Password-Generator
 My own built password generator 
-Link to Webpage: https://josh484.github.io/Bootstrap-Portfolio/
+Link to Webpage: https://josh484.github.io/Password-Generator/
 ## Description 
 This website is a password generator that when the user clicks the button on the middle of the page the user will be met with a series of prompts detailing what structure the password will have and then outputting the password within the textbox. This project highlights my understanding of the basics of javaScript using varoius types of variables, loops, functions and methods.
 
