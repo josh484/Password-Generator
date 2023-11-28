@@ -99,7 +99,7 @@ function getPasswordOptions() {
   var characterCheck = false;
 
   
-
+  /* checks length of password is within 8-128 otherwise prompt again */
   do {
     var characterLengthInput = prompt("Choose length of password between 8-128");
     characterLength = parseInt(characterLengthInput);
@@ -140,6 +140,7 @@ function getRandom(arr) {
 
 // Function to generate password with user input
 function generatePassword() {
+  /* if user does not choose at least one character type keep doing the function */
   do{
   getPasswordOptions();
   }
@@ -149,6 +150,8 @@ function generatePassword() {
   var chosen
   var random; 
   var password = "";
+
+  /* push the array of characters to an array with all characters only if it is chosen by the user */
   if (lwc == true){
     everyArr.push(lowerCasedCharacters);
   }
@@ -162,6 +165,7 @@ function generatePassword() {
     everyArr.push(specialCharacters)
   }
 
+  /* loops using the chosen password length gets a random character from everyArr and adds them all to password*/
   for (i = 0; i < characterLength; i++){
     random = Math.floor(Math.random() * everyArr.length);
     chosen = getRandom(everyArr[random]);
@@ -195,6 +199,7 @@ function characterLengthT(x,y) {
   }
 }
 
+/* creates a yes or no prompt for x to use for each type of character */
 function promptCheck(x) {
   var Choice;
   var Check = false
